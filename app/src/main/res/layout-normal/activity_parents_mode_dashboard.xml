@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mausam.eis.ParentsModeDashboardActivity">
+
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar"
+        />
+
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer">
+
+        <android.support.design.widget.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            app:itemIconTint="@color/darkGray"
+            app:itemTextColor="@color/darkGray"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/drawer_menu_parents">
+
+
+        </android.support.design.widget.NavigationView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Patents Mode Dashboard"
+            android:textSize="50sp"
+            android:gravity="center"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+
+</LinearLayout>
