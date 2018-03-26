@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
         // for local machin Use 10.0.2.2 for default AVD and 10.0.3.2 for Genymotion
 
-        ip = "192.168.0.13";
+        ip = "192.168.0.16";
 
         // form genymotion
 
@@ -136,6 +136,18 @@ public class MainActivity extends AppCompatActivity {
 
 
             parentsModeStatus  = saveUserCrediantial.getString("parentsModeStatus", "");
+
+            // this if when parentsmode btn is long pressed to request again
+            parentsModeTextView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    parentsModeStatus="false";
+
+                    parentsMode(view);
+                    return true;
+                }
+            });
+
 
 // this if is for if the app has saved both student and parents mode status
          if ((!userName.equals("") && !password.equals("") && !parentsModeStatus.equals(""))){
@@ -178,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
 
                      modeValid.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
                  }
+
+
              }
 
          }
@@ -396,6 +410,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
+            Log.i("studentMode",result);
             if (result != null && Integer.parseInt(result) > 0) {
 
                 Toast.makeText(MainActivity.this, "Login sucess! & Id = " + result, Toast.LENGTH_SHORT).show();
@@ -410,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
                 //put here method after login success
 
                 Intent studentDashboard = new Intent(getApplicationContext(),StudentDashboardActivity.class);
-
+                studentDashboard.putExtra("s_id",result );
                 startActivity(studentDashboard);
 
             } else {

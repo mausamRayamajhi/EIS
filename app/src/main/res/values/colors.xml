@@ -6,8 +6,11 @@
     <color name="white">#FFFF</color>
     <color name="transpatentWhite">#808080</color>
 
-
+<color name="transBlue">#5867b9</color>
     <color name="darkGray">#6c6c6c</color>
+    <color name="red">#e40909</color>
+    <color name="resultBackgroundColor">#99e6d6</color>
+    <color name="resultBackgroundColor2">#def4ef</color>
 
 
 </resources>

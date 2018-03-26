@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.example.mausam.eis.result_show_activity">
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <!--this is for getting semester from server-->
+      <LinearLayout
+          android:background="@color/resultBackgroundColor2"
+          android:id="@+id/semButton"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          android:orientation="horizontal"
+          android:layout_weight="0">
+
+      </LinearLayout>
+
+      <ScrollView
+          android:background="@color/resultBackgroundColor2"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:scrollbars="horizontal"
+          android:layout_weight="1"
+          >
+
+          <LinearLayout
+              android:background="@color/resultBackgroundColor2"
+              android:id="@+id/resultContainerLayout"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="1">
+
+
+              <!--
+
+                          <TextView
+                              android:background="@color/transBlue"
+                              android:textColor="@color/white"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:text="Result"
+                              android:textSize="35sp"
+                              android:gravity="center_horizontal"
+                              />
+              -->
+
+              <LinearLayout
+                  android:background="@color/resultBackgroundColor2"
+                  android:id="@+id/pp"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:layout_weight="1">
+
+              </LinearLayout>
+
+
+
+          </LinearLayout>
+
+      </ScrollView>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/colorPrimaryDark"
+          android:orientation="horizontal"
+          >
+          <TextView
+              android:id="@+id/totalFailed"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Total Failed"
+              android:textSize="20sp"
+              android:padding="10dp"
+              android:textColor="@color/white"
+              android:gravity="center_horizontal"/>
+
+      </LinearLayout>
+
+  </LinearLayout>
+
+
+</RelativeLayout>
+

@@ -30,7 +30,9 @@
         <activity android:name=".ParentsModeActivity" />
         <activity android:name=".ParentsModeInfoGatherActivity" />
         <activity android:name=".ParentsModeDashboardActivity" />
-        <activity android:name=".StudentDashboardActivity"></activity>
+        <activity android:name=".StudentDashboardActivity" />
+        <activity android:name=".result_show_activity" />
+        <activity android:name=".Routine"></activity>
     </application>
 
 </manifest>
