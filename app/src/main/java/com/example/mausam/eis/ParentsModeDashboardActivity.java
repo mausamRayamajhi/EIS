@@ -67,69 +67,42 @@ public class ParentsModeDashboardActivity extends AppCompatActivity implements  
 
             super.onPostExecute(result);
 
-            StringBuffer stname = new StringBuffer();
+            Log.i("msgFormserverresult",result);
 
-            Pattern pattern = Pattern.compile("<current_semester>(.*?)</current_semester>");
-            Matcher matcher = pattern.matcher(result);
-            while (matcher.find()) {
-              int  currentSemester = Integer.parseInt(matcher.group(1));
-                stSemester.setText("Semester : "+currentSemester);
+
+            try {
+                JSONArray j  = new JSONArray(result);
+                for (int i = 0; i < j.length(); i++) {
+                    JSONObject rec = j.getJSONObject(i);
+                    JSONObject program = rec.getJSONObject("program");
+                    String  program_name= program.getString("program_name");
+                    stfaculty.setText(program_name);
+                    JSONObject student = rec.getJSONObject("student");
+                    stName.setText(student.getString("first_name")+" "+student.getString("middle_name")+" "+student.getString("last_name" ));
+                    stSemester.setText("Semester : "+student.getString("current_semester"));
+
+                    stContact.setText("Phone : "+student.getString("phone"));
+                    stId1.setText("DOB : "+student.getString("s_id"));
+
+
+
+                    int status=student.getInt("status");
+
+
+                    if (status==1){
+                        passout.setText("Active");
+                    }else{
+                        passout.setText("Passout");
+                        passout.setBackgroundColor(getResources().getColor(R.color.red));
+                    }
+
+
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-
-            Pattern patternprogram_name = Pattern.compile("<program_name>(.*?)</program_name>");
-            Matcher matcherprogram_name = patternprogram_name.matcher(result);
-            while (matcherprogram_name.find()) {
-                String  program_name = matcherprogram_name.group(1);
-                stfaculty.setText(""+program_name);
-            }
-
-
-
-            Pattern phone = Pattern.compile("<phone>(.*?)</phone>");
-            Matcher matcherphone = phone.matcher(result);
-            while (matcherphone.find()) {
-               String contact = matcherphone.group(1);
-                stContact.setText(""+contact);
-            }
-
-            Pattern s_id = Pattern.compile("<s_id>(.*?)</s_id>");
-            Matcher matchers_id = s_id.matcher(result);
-            while (matchers_id.find()) {
-              int  stId = Integer.parseInt(matchers_id.group(1));
-                stId1.setText("ID : "+stId);
-            }
-
-            Pattern pass = Pattern.compile("<status>(.*?)</status>");
-            Matcher mpass = pass.matcher(result);
-            while (mpass.find()) {
-               int pa= Integer.parseInt(mpass.group(1));
-               if (pa==1){
-                   passout.setText("Not Pass Out");
-               }else{
-                   passout.setText("Pass Out");
-               }
-            }
-
-
-            Pattern name = Pattern.compile("<first_name>(.*?)</first_name>");
-            Matcher matchername = name.matcher(result);
-            while (matchername.find()) {
-                stname .append( matchername.group(1)+" ");
-            }
-
-           Pattern namem = Pattern.compile("<middle_name>(.*?)</middle_name>");
-            Matcher matchernamem = namem.matcher(result);
-            while (matchernamem.find()) {
-                stname .append( matchernamem.group(1)+" ");
-            }
-            Pattern nameml = Pattern.compile("<last_name>(.*?)</last_name>");
-            Matcher matchernameml = nameml.matcher(result);
-            while (matchernameml.find()) {
-                stname .append( matchernameml.group(1));
-            }
-            stName.setText(""+stname);
-
-
 
 
         }

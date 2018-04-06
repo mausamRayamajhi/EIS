@@ -32,7 +32,12 @@
         <activity android:name=".ParentsModeDashboardActivity" />
         <activity android:name=".StudentDashboardActivity" />
         <activity android:name=".result_show_activity" />
-        <activity android:name=".Routine"></activity>
+        <activity android:name=".Routine" />
+        <activity android:name=".Show_Subject" />
+        <activity android:name=".Setting" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Forum" android:screenOrientation="landscape"/>
+        <activity android:name=".ProfileEdit"></activity>
     </application>
 
 </manifest>

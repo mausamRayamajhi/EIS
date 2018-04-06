@@ -16,6 +16,71 @@ import java.net.URL;
 
 public class ReUsableClass {
 
+    public String putMethod(String setRequestMethod,String postParameters,String...urls){
+
+        Log.i("post", urls[0]);
+        Log.i("postParameters", postParameters);
+
+        String result = "";
+
+        URL urlToRequest;
+
+        HttpURLConnection urlConnection = null;
+
+
+
+        try {
+
+            urlToRequest = new URL(urls[0]);
+
+            urlConnection = (HttpURLConnection) urlToRequest.openConnection();
+            urlConnection.setRequestProperty("Content-type", "application/json");
+
+            urlConnection.setRequestMethod(setRequestMethod);
+
+            urlConnection.setDoOutput(true);
+
+            DataOutputStream dStream = new DataOutputStream(urlConnection.getOutputStream());
+
+            dStream.writeBytes(postParameters);
+
+            dStream.flush();
+
+            dStream.close();
+
+            if ( urlConnection.getResponseCode() == 200) {
+
+                InputStream inputStream = urlConnection.getInputStream();
+
+                InputStreamReader reader = new InputStreamReader(inputStream);
+
+                int data = reader.read();
+
+                while (data != -1) {
+
+                    char currentCharacter = (char) data;
+
+                    result += currentCharacter;
+
+                    data = reader.read();
+                }
+
+                return result;
+
+            }
+
+        } catch (MalformedURLException e) {
+
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        return  result;
+    }
+
     public String postMethod(String setRequestMethod,String postParameters,String...urls){
 
         Log.i("post", urls[0]);
@@ -121,4 +186,6 @@ public class ReUsableClass {
         }
         return result;
     }
+
+
 }

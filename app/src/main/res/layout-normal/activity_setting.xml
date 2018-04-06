@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mausam.eis.Setting"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#495FCF">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/student_profile_picture"
+                        android:layout_width="140dp"
+                        android:layout_height="140sp"
+                        android:layout_column="0"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        android:layout_row="0"
+                        android:background="@drawable/student" />
+                    />
+
+                    <TextView
+                        android:id="@+id/student_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="StudentName"
+                        android:textColor="@color/white"
+                        android:layout_column="0"
+                        android:layout_row="1"
+                        android:layout_marginTop="10dp"
+                        android:textSize="28sp" />
+
+
+                </GridLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFF">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/loginCardView"
+            android:layout_width="370dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="260dp"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="30dp">
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/student_userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="username : abc"
+                    android:layout_weight="1"
+                    android:textSize="27sp"/>
+                <TextView
+                    android:background="@color/transBlue"
+                    android:textColor="@color/white"
+                    android:id="@+id/student_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="Password : abc"
+                    android:layout_weight="1"
+                    android:textSize="27sp"/>
+
+            </LinearLayout>
+
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="370dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="500dp"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+
+                 android:paddingTop="5dp">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:paddingLeft="10dp"
+                     android:text="Username :"
+
+                     android:textSize="23sp"/>
+
+                 <EditText
+                     android:id="@+id/usernameStudentTextField"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="25sp"
+                     android:paddingLeft="15sp"
+                     android:text="username"
+                     android:layout_weight="1"/>
+
+             </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Password :"
+                        android:textSize="23sp"/>
+
+                    <EditText
+                        android:id="@+id/usernameStudentPasswordTextField"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:paddingLeft="15sp"
+                        android:text="password"
+                        android:layout_weight="1"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <!--login button view-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="655dp"
+            android:alpha="1"
+            android:overScrollMode="never"
+
+            app:cardCornerRadius="35dp"
+            app:cardElevation="30dp">
+
+            <Button
+                android:id="@+id/changeStudentPasswordBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="1"
+                android:background="#495FCF"
+                android:onClick="changeStudentPassword"
+                android:text="Reset"
+                android:textColor="#FFF"
+                android:textSize="20sp" />
+
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</LinearLayout>

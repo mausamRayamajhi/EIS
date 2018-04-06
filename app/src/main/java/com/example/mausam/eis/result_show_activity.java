@@ -21,9 +21,9 @@ import org.json.JSONObject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class result_show_activity extends AppCompatActivity implements View.OnClickListener{
+public class result_show_activity extends AppCompatActivity implements View.OnClickListener {
     static SharedPreferences saveUserCrediantial;
-   private String s_id;
+    private String s_id;
     //for semester toolbar
     private LinearLayout semLayout;
 
@@ -48,7 +48,6 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
     View child;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +56,11 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
 
 
         String value = getIntent().getExtras().getString("mode");
-        if (value.equalsIgnoreCase("parent")){
+        if (value.equalsIgnoreCase("parent")) {
             s_id = saveUserCrediantial.getString("studentId", "");
-        }else{
+        } else {
             String s = getIntent().getExtras().getString("studentMode_s_id");
-            s_id =s;
+            s_id = s;
         }
 
 
@@ -78,7 +77,7 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
         resultPassFail = (TextView) findViewById(R.id.resultPassFail);
         result = (LinearLayout) findViewById(R.id.result);
         resultGridView = (GridLayout) findViewById(R.id.resultGridView);
-        totalFailed=(TextView)findViewById(R.id.totalFailed);
+        totalFailed = (TextView) findViewById(R.id.totalFailed);
 
         GetStudentInfo getStudentInfo = new GetStudentInfo();
         getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudent/GetStudent/" + s_id);
@@ -143,7 +142,7 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
 
 
             Log.i("results", result);
-            int failCount=0;
+            int failCount = 0;
             try {
                 JSONArray j = new JSONArray(result);
                 Log.i("results", "" + j.length());
@@ -160,53 +159,54 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
                     Log.i("results", whichTerms + " " + subject + " " + fmpm + " " + marks + " " + passfail);
 
 
-                   if (!passfail.equalsIgnoreCase("null")){
-                       LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                       child = (View) inflater.inflate(R.layout.result, null);
+                    if (!passfail.equalsIgnoreCase("null")) {
+
+                        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        child = (View) inflater.inflate(R.layout.result, null);
 
 
-                       TextView whichTerm = (TextView) child.findViewById(R.id.whichTerm);
-                       whichTerm.setText(whichTerms);
+                        TextView whichTerm = (TextView) child.findViewById(R.id.whichTerm);
+                        whichTerm.setText(whichTerms);
 
-                       TextView resultSn = (TextView) child.findViewById(R.id.resultSn);
-                       resultSn.setText("" + (i + 1));
+                        TextView resultSn = (TextView) child.findViewById(R.id.resultSn);
+                        resultSn.setText("" + (i + 1));
 
-                       TextView resultSubject = (TextView) child.findViewById(R.id.resultSubject);
-                       resultSubject.setText(subject);
+                        TextView resultSubject = (TextView) child.findViewById(R.id.resultSubject);
+                        resultSubject.setText(subject);
 
-                       TextView resultFmPm = (TextView) child.findViewById(R.id.resultFmPm);
-                       resultFmPm.setText(fmpm);
+                        TextView resultFmPm = (TextView) child.findViewById(R.id.resultFmPm);
+                        resultFmPm.setText(fmpm);
 
-                       TextView resultMarksObtain = (TextView) child.findViewById(R.id.resultMarksObtain);
-                       resultMarksObtain.setText(marks);
+                        TextView resultMarksObtain = (TextView) child.findViewById(R.id.resultMarksObtain);
+                        resultMarksObtain.setText(marks);
 
-                       TextView resultPassFail = (TextView) child.findViewById(R.id.resultPassFail);
-                       resultPassFail.setText(passfail);
+                        TextView resultPassFail = (TextView) child.findViewById(R.id.resultPassFail);
+                        resultPassFail.setText(passfail);
 
-                       if (passfail.equalsIgnoreCase("f")) {
-                           whichTerm.setBackgroundColor(getResources().getColor(R.color.red));
-                           whichTerm.setTextColor(getResources().getColor(R.color.white));
+                        if (passfail.equalsIgnoreCase("f")) {
+                            whichTerm.setBackgroundColor(getResources().getColor(R.color.red));
+                            whichTerm.setTextColor(getResources().getColor(R.color.white));
 
-                           resultSn.setBackgroundColor(getResources().getColor(R.color.red));
-                           resultSn.setTextColor(getResources().getColor(R.color.white));
+                            resultSn.setBackgroundColor(getResources().getColor(R.color.red));
+                            resultSn.setTextColor(getResources().getColor(R.color.white));
 
-                           resultSubject.setBackgroundColor(getResources().getColor(R.color.red));
-                           resultSubject.setTextColor(getResources().getColor(R.color.white));
+                         /*   resultSubject.setBackgroundColor(getResources().getColor(R.color.red));
+                            resultSubject.setTextColor(getResources().getColor(R.color.white));*/
 
-                           resultFmPm.setBackgroundColor(getResources().getColor(R.color.red));
-                           resultFmPm.setTextColor(getResources().getColor(R.color.white));
+                            resultFmPm.setBackgroundColor(getResources().getColor(R.color.red));
+                            resultFmPm.setTextColor(getResources().getColor(R.color.white));
 
-                           resultMarksObtain.setBackgroundColor(getResources().getColor(R.color.red));
-                           resultMarksObtain.setTextColor(getResources().getColor(R.color.white));
+                            resultMarksObtain.setBackgroundColor(getResources().getColor(R.color.red));
+                            resultMarksObtain.setTextColor(getResources().getColor(R.color.white));
 
-                           resultPassFail.setBackgroundColor(getResources().getColor(R.color.red));
-                           resultPassFail.setTextColor(getResources().getColor(R.color.white));
+                            resultPassFail.setBackgroundColor(getResources().getColor(R.color.red));
+                            resultPassFail.setTextColor(getResources().getColor(R.color.white));
 
-                           failCount++;
-                       }
-                       totalFailed.setText("Total Failed : "+failCount);
-                       pp.addView(child);
-                   }
+                            failCount++;
+                        }
+                        totalFailed.setText("Total Failed : " + failCount);
+                        pp.addView(child);
+                    }
 
 
                 }
