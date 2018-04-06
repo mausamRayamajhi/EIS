@@ -113,7 +113,10 @@ public class MainActivity extends AppCompatActivity {
 
         // for local machin Use 10.0.2.2 for default AVD and 10.0.3.2 for Genymotion
 
-        ip = "192.168.0.16";
+        //ip = "192.168.0.20";
+        ip ="192.168.0.12";
+
+        //ip ="192.168.1.4";//shrawan ip
 
         // form genymotion
 
@@ -375,9 +378,11 @@ public class MainActivity extends AppCompatActivity {
 
             // 1-valid request 0- invalid
 
+            Log.i("paremtsmOdedvalid",result);
+
             int validParentsMode = Integer.parseInt(result);
 
-            if (validParentsMode==1){
+            if (validParentsMode ==1){
 
                 Toast.makeText(MainActivity.this, "Your request has been accepted.", Toast.LENGTH_LONG).show();
 
