@@ -32,7 +32,7 @@ public class Profile extends AppCompatActivity {
 
     Student  stdn;
     private int s_id;
-
+//PROJECT GIT PUSH
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
