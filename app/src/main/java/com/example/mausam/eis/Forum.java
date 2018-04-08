@@ -18,7 +18,7 @@ public class Forum extends AppCompatActivity {
         webview.setWebViewClient(new WebViewClient());
         //webview.loadUrl("http://" + new MainActivity().ip + ":8080/home");
 
-        webview.loadUrl("https://www.google.com");
+        webview.loadUrl("http://" + MainActivity.ip + ":8080/exam-project-8/");
 
         WebSettings webSettings= webview.getSettings();
         webSettings.setJavaScriptEnabled(true);

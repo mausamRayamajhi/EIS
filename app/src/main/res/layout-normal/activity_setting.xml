@@ -98,6 +98,7 @@
                     android:text="username : abc"
                     android:layout_weight="1"
                     android:textSize="27sp"/>
+
                 <TextView
                     android:background="@color/transBlue"
                     android:textColor="@color/white"
@@ -106,6 +107,7 @@
                     android:layout_height="0dp"
                     android:gravity="center"
                     android:text="Password : abc"
+
                     android:layout_weight="1"
                     android:textSize="27sp"/>
 
@@ -178,7 +180,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="25sp"
                         android:paddingLeft="15sp"
-                        android:text="password"
+
+                        android:inputType="textPassword"
                         android:layout_weight="1"/>
 
 

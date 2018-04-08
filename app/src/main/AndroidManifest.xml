@@ -36,7 +36,7 @@
         <activity android:name=".Show_Subject" />
         <activity android:name=".Setting" />
         <activity android:name=".Profile" />
-        <activity android:name=".Forum" android:screenOrientation="landscape"/>
+        <activity android:name=".Forum"  android:screenOrientation="fullSensor"  /><!--android:screenOrientation="landscape"-->
         <activity android:name=".ProfileEdit"></activity>
     </application>
 
