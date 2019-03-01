@@ -114,9 +114,9 @@ public class MainActivity extends AppCompatActivity {
         // for local machin Use 10.0.2.2 for default AVD and 10.0.3.2 for Genymotion
 
         //ip = "192.168.0.20";
-        ip ="192.168.15.119";
+        //ip ="192.168.15.119";
 
-        //ip ="192.168.1.4";//shrawan ip
+        ip ="192.168.1.7";//shrawan ip
 
         // form genymotion
 

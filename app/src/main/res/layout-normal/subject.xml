@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <android.support.v7.widget.CardView android:layout_gravity="center_horizontal" android:background="@color/colorPrimary" android:layout_width="380dp" android:layout_height="wrap_content" android:layout_marginTop="15dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView android:textSize="25sp" android:gravity="center_horizontal" android:id="@+id/subjectNames" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Subject Name"/>
+            <GridLayout android:id="@+id/subjecttGridView" android:padding="10dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+                <TextView android:textSize="20sp" android:textColor="@color/white" android:background="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="1" android:text="Credit" android:layout_row="0" android:layout_columnWeight="1"/>
+                <TextView android:textSize="20sp" android:textColor="@color/white" android:background="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="2" android:text="Internal" android:layout_row="0" android:layout_columnWeight="1"/>
+                <TextView android:textSize="20sp" android:textColor="@color/white" android:background="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="3" android:text="Practical" android:layout_row="0" android:layout_columnWeight="1"/>
+                <TextView android:textSize="20sp" android:textColor="@color/white" android:background="@color/colorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="4" android:text="Code" android:layout_row="0" android:layout_columnWeight="1"/>
+                <TextView android:textSize="15sp" android:id="@+id/subjectCredit" android:paddingRight="4dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="1" android:text="5" android:layout_row="1" android:layout_columnWeight="1"/>
+                <TextView android:textSize="15sp" android:id="@+id/subjectInternal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="2" android:text="25" android:layout_row="1" android:layout_columnWeight="1"/>
+                <TextView android:textSize="15sp" android:id="@+id/subjectPractical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="3" android:text="80" android:layout_row="1" android:layout_columnWeight="1"/>
+                <TextView android:textSize="15sp" android:id="@+id/subjectCode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_column="4" android:text="BE012FD" android:layout_row="1" android:layout_columnWeight="1"/>
+            </GridLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
