@@ -80,7 +80,7 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
         totalFailed = (TextView) findViewById(R.id.totalFailed);
 
         GetStudentInfo getStudentInfo = new GetStudentInfo();
-        getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudent/GetStudent/" + s_id);
+        getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudent/GetStudent/" + s_id);
     }
 
     class GetStudentInfo extends AsyncTask<String, Void, String> {
@@ -228,6 +228,6 @@ public class result_show_activity extends AppCompatActivity implements View.OnCl
         }
 
         GetResult getResult = new GetResult();
-        getResult.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsExams/GetStudentExamByStudentIdAndSemesterNo/" + s_id + "/" + semester);
+        getResult.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsExams/GetStudentExamByStudentIdAndSemesterNo/" + s_id + "/" + semester);
     }
 }

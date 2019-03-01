@@ -126,7 +126,7 @@ Log.i("modelstudentsmm",model.toString());
         try {
             jsonResult  = objectMapper.writeValueAsString(model);
         UpdateUsernamePassword updateUsernamePassword = new UpdateUsernamePassword();
-            updateUsernamePassword.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudent/UpdateStudent");
+            updateUsernamePassword.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudent/UpdateStudent");
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();

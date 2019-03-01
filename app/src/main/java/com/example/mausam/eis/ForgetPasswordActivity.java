@@ -69,7 +69,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
             ForgetPasswordRequest request = new ForgetPasswordRequest();
 
-            request.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiForgetPassword/" + email);
+            request.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiForgetPassword/" + email);
 
         } else if (taskToRun == 2) {
 
@@ -79,7 +79,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
             VerifyCode verifyCode = new VerifyCode();
 
-            verifyCode.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiResetPassword/" + codeAndId[0] + "/Student/" + codeAndId[1]);
+            verifyCode.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiResetPassword/" + codeAndId[0] + "/Student/" + codeAndId[1]);
 
         } else if (taskToRun == 3) {
 
@@ -88,7 +88,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             ResetPassword resetPassword = new ResetPassword();
 
 
-            resetPassword.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiResetPasswordNext");
+            resetPassword.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiResetPasswordNext");
 
 
         }

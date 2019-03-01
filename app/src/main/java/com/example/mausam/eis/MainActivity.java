@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -67,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
     GetUserData user;
 
+    ImageView serverIp;
 
-    static String ip;
+    //static String ip;
 
     String setRequestMethod = "";
 
@@ -82,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        serverIp = findViewById(R.id.server_ip);
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -108,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
 
         rememberMeCheckBox = (CheckBox) findViewById(R.id.rememberMeCheckBox);
 
+
+        serverIp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getIP();
+            }
+        });
+
         user = new GetUserData();
 
 
@@ -116,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         //ip = "192.168.0.20";
         //ip ="192.168.15.119";
 
-        ip ="192.168.1.7";//shrawan ip
+        //ip ="192.168.1.7";//shrawan ip
 
         // form genymotion
 
@@ -175,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
                  passwordTextField.setText(password);
 
-                 user.execute("http://" + ip + ":8080/exam-project-8/ApiLoginOut");
+                 user.execute("http://" + getServerIp() + ":8080/exam-project-8/ApiLoginOut");
 
                  Toast.makeText(MainActivity.this, "Username and password already exits As " + saveUserCrediantial.getString("username", ""), Toast.LENGTH_LONG).show();
 
@@ -191,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
                      IsParentsModeValid modeValid = new IsParentsModeValid();
 
-                     modeValid.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
+                     modeValid.execute("http://" + getServerIp() + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
                  }
 
 
@@ -203,6 +215,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void getIP() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Server IP");
+
+// Set up the input
+        final EditText input = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String ip = input.getText().toString().trim();
+                saveUserCrediantial.edit().putString("ip", ip).apply();
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    public static String getServerIp(){
+        return saveUserCrediantial.getString("ip",null).trim();
+    }
     public void newLogin(View view){
 
         loginCardView.setVisibility(View.VISIBLE);
@@ -220,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
 
     public  void activateStudentMode(View view){
 
-        user.execute("http://" + ip + ":8080/exam-project-8/ApiLoginOut");
+        user.execute("http://" + getServerIp() + ":8080/exam-project-8/ApiLoginOut");
 
     }
 
@@ -232,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
 
             IsParentsModeValid modeValid = new IsParentsModeValid();
 
-            modeValid.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
+            modeValid.execute("http://" + getServerIp() + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
 
 
     }
@@ -251,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
 
                 IsParentsModeValid modeValid = new IsParentsModeValid();
 
-                modeValid.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
+                modeValid.execute("http://" + getServerIp() + ":8080/exam-project-8/ApiStudentParent/GetStudentParentBy/" + s_id + "/" + contact);
             }
         }else {
 
@@ -275,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
 
                 user = new GetUserData();
 
-                user.execute("http://" + ip + ":8080/exam-project-8/ApiLoginOut");
+                user.execute("http://" + getServerIp() + ":8080/exam-project-8/ApiLoginOut");
 
             } catch (Exception e) {
 

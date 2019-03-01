@@ -46,7 +46,7 @@
                         android:layout_marginTop="65dp"
                         android:layout_row="0"
                         android:src="@drawable/home"
-
+                        android:id="@+id/server_ip"
                         />
                 </GridLayout>
             </LinearLayout>

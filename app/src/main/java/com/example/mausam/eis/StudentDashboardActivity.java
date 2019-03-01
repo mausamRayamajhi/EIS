@@ -99,7 +99,7 @@ public class StudentDashboardActivity extends AppCompatActivity implements Navig
 
 
         GetStudentInfo getStudentInfo = new GetStudentInfo();
-        getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+student_id);
+        getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+student_id);
 
 
     }

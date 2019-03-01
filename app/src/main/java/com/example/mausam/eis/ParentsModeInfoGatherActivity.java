@@ -126,7 +126,7 @@ public class ParentsModeInfoGatherActivity extends AppCompatActivity {
 
         info = new SaveParentModeInfo();
 
-        info.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentParent/SaveStudentParent");
+        info.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentParent/SaveStudentParent");
 
 
     }

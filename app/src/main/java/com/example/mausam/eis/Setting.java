@@ -50,7 +50,7 @@ public class Setting extends AppCompatActivity {
         changeStudentPasswordBtn=(Button)findViewById(R.id.changeStudentPasswordBtn);
 
        GetStudentInfo getStudentInfo = new GetStudentInfo();
-        getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+s_id);
+        getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+s_id);
 
     }
 
@@ -132,7 +132,7 @@ public class Setting extends AppCompatActivity {
             snackbar.show();
 
             GetStudentInfo getStudentInfo = new GetStudentInfo();
-            getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+s_id);
+            getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+s_id);
 
 
         }
@@ -149,7 +149,7 @@ public class Setting extends AppCompatActivity {
             try {
                  jsonResult  = objectMapper.writeValueAsString(stdn);
                 UpdateUsernamePassword updateUsernamePassword = new UpdateUsernamePassword();
-                updateUsernamePassword.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudent/UpdateStudent");
+                updateUsernamePassword.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudent/UpdateStudent");
                 Log.i("jsonResult",jsonResult);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();

@@ -38,7 +38,7 @@ public class Show_Subject extends AppCompatActivity implements  View.OnClickList
         ppSubject=(LinearLayout)findViewById(R.id.ppSubject);
 
         GetStudentInfo getStudentInfo = new GetStudentInfo();
-        getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudent/GetStudent/" + s_id);
+        getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudent/GetStudent/" + s_id);
     }
 
     class GetSubject extends AsyncTask<String, Void, String> {
@@ -136,7 +136,7 @@ public class Show_Subject extends AppCompatActivity implements  View.OnClickList
 
 
             GetSubject getSubject = new GetSubject();
-            getSubject.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiSubject/GetSubjectByParameters/" + programId + "/" + specificSemesterClicked);
+            getSubject.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiSubject/GetSubjectByParameters/" + programId + "/" + specificSemesterClicked);
 
         }
     }
@@ -195,7 +195,7 @@ public class Show_Subject extends AppCompatActivity implements  View.OnClickList
         }
 
         GetStudentProgram studentProgram = new GetStudentProgram();
-        studentProgram.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/" + s_id );
+        studentProgram.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/" + s_id );
 
 
           }

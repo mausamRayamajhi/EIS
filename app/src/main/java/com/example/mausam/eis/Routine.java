@@ -43,7 +43,7 @@ public class Routine extends AppCompatActivity {
         routineSection = (LinearLayout) findViewById(R.id.routineSection);
 
         GetRoutine getRoutine = new GetRoutine();
-        getRoutine.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiExam/getRoutineForParentsMode/" + s_id);
+        getRoutine.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiExam/getRoutineForParentsMode/" + s_id);
     }
 
     class GetRoutine extends AsyncTask<String, Void, String> {

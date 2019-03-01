@@ -186,11 +186,11 @@ public class ParentsModeDashboardActivity extends AppCompatActivity implements  
         passout =(TextView)findViewById(R.id.passout);
 
         GetStudentInfo getStudentInfo = new GetStudentInfo();
-        getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/" + s_id);
+        getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/" + s_id);
 
 
         ParentsInfo parentsInfo = new ParentsInfo();
-        parentsInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentParent/GetStudentParentByStudentIdAndContact/" + s_id+"/"+pcontact);
+        parentsInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentParent/GetStudentParentByStudentIdAndContact/" + s_id+"/"+pcontact);
 
 
     }

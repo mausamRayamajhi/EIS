@@ -51,7 +51,7 @@ public class Profile extends AppCompatActivity {
         student_status = (TextView)findViewById(R.id.student_status);
 
         GetStudentInfo getStudentInfo = new GetStudentInfo();
-        getStudentInfo.execute("http://" + MainActivity.ip + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+s_id);
+        getStudentInfo.execute("http://" + MainActivity.getServerIp() + ":8080/exam-project-8/ApiStudentsProgram/GetStudentsProgramByStudentId/"+s_id);
 
     }
     public void editStudentProfile(View view){
